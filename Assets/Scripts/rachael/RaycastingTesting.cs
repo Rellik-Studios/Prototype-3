@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class RaycastingTesting : MonoBehaviour
 {
     [SerializeField] private float raydist = 5.0f;
+    public GameObject ObjectInFront { get; private set; }
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        ObjectInFront = null;
     }
 
     // Update is called once per frame
@@ -26,12 +27,9 @@ public class RaycastingTesting : MonoBehaviour
             if (hit.collider.gameObject != gameObject)
             {
                 //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                Debug.Log($"hit {hit.collider.gameObject.name}");
-
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Item") && Input.GetMouseButtonDown(0))
-                {
-                    Debug.Log("Found item");
-                }
+                //Debug.Log($"hit {hit.collider.gameObject.name}");
+                ObjectInFront = hit.collider.gameObject;
+                break;
             }
         }
         */
@@ -51,13 +49,7 @@ public class RaycastingTesting : MonoBehaviour
             if (closestHit.distance > hit.distance)
                 closestHit = hit;
         }
-
-        //when the Button down is pressed
-        if (Input.GetMouseButtonDown(0))
-        {
-            ObjectInteraction(closestHit.collider.gameObject.layer);
-            
-        }
+        ObjectInFront = closestHit.collider.gameObject;
 
     }
 
