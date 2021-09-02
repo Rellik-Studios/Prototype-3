@@ -14,18 +14,18 @@ public class RaycastingTesting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.forward * raydist, Color.green, 0.1f);
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.forward, raydist);
+        Debug.DrawRay(transform.position, transform.forward * raydist, Color.green, 0.1f);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, raydist);
 
 
-        for (int i = 0; i < hits.Length; i++)
+        foreach (var hit in hits)
         {
             //hit object doesnt detect itself
-            if (hits[i].collider.gameObject != gameObject)
+            if (hit.collider.gameObject != gameObject)
             {
-                Debug.Log("did hit");
+                //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                Debug.Log($"hit {hit.collider.gameObject.name}");
             }
-
         }
     }
 }
