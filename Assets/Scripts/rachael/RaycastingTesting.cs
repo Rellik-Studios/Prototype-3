@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class RaycastingTesting : MonoBehaviour
 {
     [SerializeField] private float raydist = 5.0f;
-    // Start is called before the first frame update
+    public GameObject ObjectInFront { get; private set; }
+
     void Start()
     {
-        
+        ObjectInFront = null;
     }
 
     // Update is called once per frame
@@ -24,7 +26,9 @@ public class RaycastingTesting : MonoBehaviour
             if (hit.collider.gameObject != gameObject)
             {
                 //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                Debug.Log($"hit {hit.collider.gameObject.name}");
+                //Debug.Log($"hit {hit.collider.gameObject.name}");
+                ObjectInFront = hit.collider.gameObject;
+                break;
             }
         }
     }
