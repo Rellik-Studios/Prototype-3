@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Cinemachine;
+using UnityEngine;
 
 namespace Himanshu
 {
@@ -6,7 +8,7 @@ namespace Himanshu
     {
         public void Execute(PlayerInteract _player)
         {
-            Debug.Log("Will Hide");
+            _player.Hide();
         }
     }
 }
