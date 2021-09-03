@@ -8,11 +8,17 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool closeTrigger = false;
     [SerializeField] private bool DoneOnce = true;
+    [SerializeField] private bool isOpened = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isOpened)
+        {
+            myDoor.SetBool("IsOpening", true);
+        }
+       
     }
+
 
     // Update is called once per frame
     void Update()
@@ -23,18 +29,27 @@ public class DoorScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            if(openTrigger && DoneOnce)
-            {
-                myDoor.Play("DoorOpen", 0, 0.0f);
-                DoneOnce = false;
+            //old anim
 
-            }
-            if (closeTrigger && DoneOnce)
-            {
-                myDoor.Play("DoorClose", 0, 0.0f);
-                DoneOnce = false;
+            //if(openTrigger && DoneOnce)
+            //{
+            //    myDoor.Play("DoorOpening", 0, 0.0f);
+            //    DoneOnce = false;
 
-            }
+            //}
+            //if (closeTrigger && DoneOnce)
+            //{
+            //    myDoor.Play("DoorClosing", 0, 0.0f);
+            //    DoneOnce = false;
+
+            //}
+            if(openTrigger)
+                myDoor.SetBool("IsOpening", true);
+            if(closeTrigger)
+                myDoor.SetBool("IsOpening", false);
+
+
         }
     }
+
 }
