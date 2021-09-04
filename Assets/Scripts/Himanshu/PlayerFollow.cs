@@ -26,5 +26,11 @@ namespace Himanshu
             m_playerTransform.forward = new Vector3(transform.forward.x, 0f, transform.forward.z);
 
         }
+
+        public void ResetMouse()
+        {
+            m_mouseX = 0f;
+            m_mouseY = 0f;
+        }
     }
 }
