@@ -23,7 +23,11 @@ public class SafeRoom : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsSafe = true;
-            Debug.Log("You have entered the safe room");
+            if (other.GetComponentInParent<RespawnManager>() != null)
+            {
+                other.GetComponentInParent<RespawnManager>().SetPosition(this.transform);
+                Debug.Log("You have entered the safe room");
+            }
         }
     }
     //when they exit safe room
