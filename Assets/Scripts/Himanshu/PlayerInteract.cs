@@ -5,7 +5,10 @@ namespace Himanshu
     public class PlayerInteract : MonoBehaviour
     {
         public bool interactHold => m_playerInput.interactHold;
-        
+
+        private int m_bulletCount = 1;
+
+        public int bulletCount => m_bulletCount;
         public bool m_hiding;
         private PlayerInput m_playerInput;
         private RaycastingTesting m_raycastingTesting;
@@ -39,7 +42,7 @@ namespace Himanshu
 
         public void Shoot()
         {
-            Debug.Log("Dishoom");
+            m_bulletCount -= 1;
         }
     }
 }

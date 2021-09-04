@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Himanshu;
 using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
@@ -28,7 +29,13 @@ public class RespawnManager : MonoBehaviour
         {
             GetComponent<CharacterController>().enabled = false;
             gameObject.transform.position = position;
-            gameObject.transform.rotation = rotation;
+            if (Camera.main is { })
+            {
+                Camera.main.transform.rotation = rotation;
+                Debug.Log("Here");
+                Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse();
+
+            }
             GetComponent<CharacterController>().enabled = true;
         }
     }
@@ -36,7 +43,6 @@ public class RespawnManager : MonoBehaviour
     {
         position = checkpoint.position;
         rotation = checkpoint.rotation;
-
     }
 
 }

@@ -19,14 +19,17 @@ namespace Himanshu
 
         public void Execute(PlayerInteract _player)
         {
-            frozen = true;
-
-            StartCoroutine(UnFreeze());
+            if (_player.bulletCount > 0)
+            {
+                frozen = true;
+                _player.Shoot();
+                StartCoroutine(UnFreeze());
+            }
         }
 
         private IEnumerator UnFreeze()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(6f);
             frozen = false;
         }
 

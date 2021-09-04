@@ -37,6 +37,7 @@ public class RaycastingTesting : MonoBehaviour
         //if they arent any hits
         if (hits.Length == 0)
         {
+            ObjectInFront = null;
             return;
         }
 
