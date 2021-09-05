@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Video;
 
 namespace Himanshu
 {
@@ -27,6 +29,27 @@ namespace Himanshu
             else
             {
                 m_hiding = false;
+            }
+
+            if (m_playerInput.interact)
+            {
+                m_raycastingTesting.ObjectInFront?.GetComponent<IEnemy>()?.Shoot(this);
+            }
+
+            if(Input.GetKeyDown(KeyCode.A))
+                StartCoroutine(TimeHandler());
+        }
+
+        private IEnumerator TimeHandler()
+        {
+            if (m_bulletCount > 0)
+            {
+                m_bulletCount--;
+                Time.timeScale = 0.1f;
+
+                yield return new WaitForSeconds(6f * Time.timeScale);
+
+                Time.timeScale = 1f;
             }
         }
 

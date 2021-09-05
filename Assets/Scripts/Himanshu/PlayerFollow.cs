@@ -17,6 +17,7 @@ namespace Himanshu
         {
             transform.position = m_playerTransform.position;
 
+            
             m_mouseX += Input.GetAxis("Mouse X");
             m_mouseY += Input.GetAxis("Mouse Y");
 
