@@ -6,17 +6,7 @@ public class SafeRoom : MonoBehaviour
 {
     //temporary value until we fixed this on player
     bool IsSafe = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     //when they enter safe room
     private void OnTriggerEnter(Collider other)
     {

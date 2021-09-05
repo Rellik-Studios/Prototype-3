@@ -1,36 +1,37 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Himanshu
 {
-    public class EnemyController : MonoBehaviour, IInteract
+    public class EnemyController : MonoBehaviour, IEnemy
     {
 
         [SerializeField] private float m_attackTimer;
         private float m_defaultAttackTimer;
+        public UnityEvent m_command;
+        [FormerlySerializedAs("frozen")] public bool m_frozen = false;
+        public bool m_commandFinished { get; set; }
 
-        public bool frozen = false;
-
+        
+        //Called through the Visual Script
+        public void RunCommand()
+        {
+            m_command?.Invoke();
+            m_commandFinished = true;
+        }
         private void Start()
         {
             m_defaultAttackTimer = m_attackTimer;
         }
 
-        public void Execute(PlayerInteract _player)
-        {
-            if (_player.bulletCount > 0)
-            {
-                frozen = true;
-                _player.Shoot();
-                StartCoroutine(UnFreeze());
-            }
-        }
 
         private IEnumerator UnFreeze()
         {
             yield return new WaitForSeconds(6f);
-            frozen = false;
+            m_frozen = false;
         }
 
         //Called through the Visual Script
@@ -48,6 +49,18 @@ namespace Himanshu
         public void ResetAttack()
         {
             m_attackTimer = m_defaultAttackTimer;
+        }
+
+        
+        //Interface Requirement
+        public void Shoot(PlayerInteract _player)
+        {
+            if (_player.bulletCount > 0)
+            {
+                m_frozen = true;
+                _player.Shoot();
+                StartCoroutine(UnFreeze());
+            }
         }
     }
 }
