@@ -25,6 +25,26 @@ namespace Himanshu
             m_jump = Input.GetButtonDown("Jump");
             m_interact = Input.GetButtonDown("Interact");
             m_interactHold = Input.GetButton("Interact");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
 }
