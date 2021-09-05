@@ -52,4 +52,13 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+    public void DoorOpening()
+    {
+        myDoor.SetBool("IsOpening", true);
+    }
+    public void DoorClosing()
+    {
+        myDoor.SetBool("IsOpening", false);
+    }
+
 }

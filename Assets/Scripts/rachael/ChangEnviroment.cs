@@ -5,6 +5,8 @@ using UnityEngine;
 public class ChangEnviroment : MonoBehaviour
 {
     public GameObject[] EnvirObject;
+    public GameObject[] LocationObject;
+    public GameObject DoorTrigger;
     private int Index = 0;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,20 @@ public class ChangEnviroment : MonoBehaviour
                 //disable the object
                 EnvirObject[Index].SetActive(false);
                 Index++;
+
+                //Setting the new location for the player after they go through the hole
+                if (other.GetComponentInParent<RespawnManager>() != null)
+                {
+                    other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
+                    Debug.Log("You have moved to a new location");
+                }
+
+                //setting the trigger to disable so a certain door doesnt open
+                //NOTE: this door is the main room door with the clock
+                if(DoorTrigger !=null)
+                {
+                    DoorTrigger.SetActive(false);
+                }
                 //after raising the index by one
                 EnvirObject[Index].SetActive(true);
             }

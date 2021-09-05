@@ -39,6 +39,12 @@ public class RespawnManager : MonoBehaviour
             GetComponent<CharacterController>().enabled = true;
         }
     }
+    public void Teleport(Transform location)
+    {
+        GetComponent<CharacterController>().enabled = false;
+        gameObject.transform.position = location.position;
+        GetComponent<CharacterController>().enabled = true;
+    }
     public void SetPosition(Transform checkpoint)
     {
         position = checkpoint.position;
