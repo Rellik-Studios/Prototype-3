@@ -11,6 +11,8 @@ namespace Himanshu
         private int m_bulletCount = 1;
 
         public int bulletCount => m_bulletCount;
+        public bool timeReverse { get; set; }
+
         public bool m_hiding;
         public PlayerInput m_playerInput;
         private RaycastingTesting m_raycastingTesting;
@@ -22,6 +24,7 @@ namespace Himanshu
             m_playerFollow = GameObject.FindObjectOfType<PlayerFollow>();
             m_raycastingTesting = FindObjectOfType<RaycastingTesting>();
             m_playerInput = GetComponent<PlayerInput>();
+            timeReverse = true;
         }
 
         private void Update()
@@ -44,7 +47,7 @@ namespace Himanshu
                 StartCoroutine(TimeHandler());
         }
 
-        private void Unhide()
+        public void Unhide()
         {
             transform.Translate(transform.forward);
             GetComponent<CharacterController>().enabled = true;
