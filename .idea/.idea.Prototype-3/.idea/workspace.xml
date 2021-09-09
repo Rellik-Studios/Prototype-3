@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="51cde566-903c-4930-8c46-3c5e9f14f61c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludiq/Bolt.Flow/Generated/UnitOptions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludiq/Bolt.Flow/Generated/UnitOptions.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Himanshu/Cube.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/Cube.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Himanshu/TableFlip.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/TableFlip.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/HidingTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/HidingTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/StateMachine.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +35,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/RespawnManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1xkDVs9QXiGs7SQFjBgD917pcty" />
@@ -87,6 +86,7 @@
       <updated>1630890223521</updated>
       <workItem from="1630890231044" duration="6244000" />
       <workItem from="1631095332729" duration="10376000" />
+      <workItem from="1631140189228" duration="2804000" />
     </task>
     <servers />
   </component>
