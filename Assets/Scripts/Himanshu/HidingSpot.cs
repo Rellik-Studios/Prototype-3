@@ -13,7 +13,8 @@ namespace Himanshu
         private List<Transform> m_hidingSpots;
         private int m_hidingIndex;
         private PlayerInteract m_player;
-
+        public bool m_cupboard;
+        
         private Animator m_animator;
         private bool aInfect
         {
@@ -31,7 +32,18 @@ namespace Himanshu
             get => m_animator.GetFloat("speed");
             set => m_animator.SetFloat("speed", value);
         }
+
+        public bool aOpen
+        {
+            get => m_animator.GetBool("open");
+            set => m_animator.SetBool("open", value);
+        }
         
+        public bool aClose
+        {
+            get => m_animator.GetBool("close");
+            set => m_animator.SetBool("close", value);
+        }
         
         public bool isActive
         {
@@ -73,7 +85,7 @@ namespace Himanshu
             if (isActive)
             {
                 m_player = _player;
-                m_player.SetPositionAndRotation(m_hidingSpots[hidingIndex]);
+                m_player.SetPositionAndRotation(m_hidingSpots[hidingIndex], m_cupboard ? 1.0f : 0f);
                 _player.Hide(this);
             }
 
