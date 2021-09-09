@@ -49,12 +49,35 @@ namespace Himanshu
 
         public void Unhide()
         {
+            if (m_hidingSpot.m_cupboard)
+            {
+                StartCoroutine(eUnHide());
+            }
+            else
+            {
+                transform.Translate(transform.forward);
+                GetComponent<CharacterController>().enabled = true;
+                m_playerFollow.ResetRotationLock();
+                m_hidingSpot.Disable();
+                m_hiding = false;
+                m_hidingSpot = null;
+            }
+        }
+
+        private IEnumerator eUnHide()
+        {
+            m_hidingSpot.aOpen = true;
+            m_hidingSpot.aClose = false;
+            yield return new WaitForSeconds(1f);
+            transform.Translate(-transform.forward * 3f);
+            m_hidingSpot.aOpen = false;
+            m_hidingSpot.aClose = true;
             transform.Translate(transform.forward);
             GetComponent<CharacterController>().enabled = true;
             m_playerFollow.ResetRotationLock();
             m_hidingSpot.Disable();
             m_hiding = false;
-            m_hidingSpot = null;
+            m_hidingSpot = null;            
         }
 
         private IEnumerator TimeHandler()
@@ -72,14 +95,41 @@ namespace Himanshu
 
         public void Hide(HidingSpot _hidingSpot)
         {
+            if (_hidingSpot.m_cupboard)
+            {
+                StartCoroutine(eHide(_hidingSpot));
+            }
+            else
+            {
+                m_hidingSpot = _hidingSpot;
+                GetComponent<CharacterController>().enabled = false;
+                Debug.Log("Hiding now");
+                m_hiding = true;
+            }
+        }
+
+        private IEnumerator eHide(HidingSpot _hidingSpot)
+        {
+            _hidingSpot.aOpen = true;
+            _hidingSpot.aClose = false;
+            yield return new WaitForSeconds(1f);
+            _hidingSpot.aOpen = false;
+            _hidingSpot.aClose = true;
+            
             m_hidingSpot = _hidingSpot;
             GetComponent<CharacterController>().enabled = false;
             Debug.Log("Hiding now");
-            m_hiding = true;
+            m_hiding = true;            
         }
 
-        public void SetPositionAndRotation(Transform _transform)
+        public void SetPositionAndRotation(Transform _transform, float _delay = 0)
         {
+            StartCoroutine(eSetPositionAndRotation(_transform, _delay));
+        }
+
+        private IEnumerator eSetPositionAndRotation(Transform _transform,float _delay)
+        {
+            yield return new WaitForSeconds(_delay);
             GetComponent<CharacterController>().enabled = false;
             transform.position = _transform.position;
             m_playerFollow.SetRotation(_transform, new Vector2(-30, 30));

@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 0609beceb0b1afa47883ff1f9cbc83ff
+guid: 789fca32e02f0414f9fa8401f29e6ca4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Closet_Standing
+    second: {fileID: 2100000, guid: 17b4434619a95df45acad97c91522921, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
