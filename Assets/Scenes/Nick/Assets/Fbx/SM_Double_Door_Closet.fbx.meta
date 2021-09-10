@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: T_Closet_Standing
-    second: {fileID: 2100000, guid: 17b4434619a95df45acad97c91522921, type: 2}
+    second: {fileID: 2100000, guid: 013129615e432c34481e4925341e09dd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
