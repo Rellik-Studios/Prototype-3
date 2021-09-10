@@ -9,7 +9,6 @@ namespace Himanshu
 {
     public class HidingSpot : MonoBehaviour, IInteract
     {
-
         private List<Transform> m_hidingSpots;
         private int m_hidingIndex;
         private PlayerInteract m_player;

@@ -106,7 +106,8 @@ namespace Himanshu
 
                 for (int i = 0; i < patrolPointsParent.childCount; i++)
                 {
-                    m_patrolPoints.Add(patrolPointsParent.GetChild(i));
+                    if(patrolPointsParent.GetChild(i).gameObject.activeInHierarchy)
+                        m_patrolPoints.Add(patrolPointsParent.GetChild(i));
                 }
 
                 patrolPointsParent.SetParent(null);
