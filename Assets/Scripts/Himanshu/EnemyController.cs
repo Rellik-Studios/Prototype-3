@@ -27,7 +27,7 @@ namespace Himanshu
         [FormerlySerializedAs("frozen")] public bool m_frozen = false;
         public bool m_commandFinished { get; set; }
 
-        
+        [SerializeField] private bool m_noCommand;
 
         private List<Transform> m_patrolPoints = new List<Transform>();
         private int m_index;
@@ -47,7 +47,9 @@ namespace Himanshu
         public void RunCommand()
         {
             m_command?.Invoke();
-            m_commandFinished = true;
+
+            if (m_noCommand)
+                m_commandFinished = true;
         }
         private void Start()
         {
@@ -112,6 +114,8 @@ namespace Himanshu
 
                 patrolPointsParent.SetParent(null);
             }
+            
+            m_agent.SetDestination(m_patrolPoints[index].position);
         }
 
         public void PatrolUpdate()
@@ -147,7 +151,7 @@ namespace Himanshu
             
             for (int i = 0; i <= 2; i++)
             {
-                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player"))
+                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player") && m_hits[i].collider.GetComponentInParent<CharacterController>().enabled)
                 {
                     return true;
                 }
@@ -184,7 +188,6 @@ namespace Himanshu
             
             if (m_agent.remainingDistance <= m_agent.stoppingDistance && !m_hidingSpotToInfect.infectStared)
             {
-                
                 m_hidingSpotToInfect.Infect();
             }
         }

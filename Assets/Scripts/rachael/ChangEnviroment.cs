@@ -8,7 +8,12 @@ public class ChangEnviroment : MonoBehaviour
     public GameObject[] EnvirObject;
     public GameObject[] LocationObject;
     public GameObject DoorTrigger;
-    private int Index = 0;
+
+    public int Index
+    {
+        get;
+        private set;
+    }
     // Start is called before the first frame update
     void Start()
     {

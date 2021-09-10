@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Distortion_MAT
+  m_Name: Distortion_MAT 2
   m_Shader: {fileID: -6465566751694194690, guid: be6a4e3a9d00d8f4599719c8a26bc12a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - DistortionLevel: 0.02
+    - DistortionLevel: 0
     - Vector1_3cf020a520d440a4a9f2dab2b6dc59f6: 4
     - Vector1_4943da79db88402f8870934edf51c51f: 0.8
     - Vector1_a294a100ff214cda8016561ef8ed8637: -0.2
     - Vector1_a63e76e431c340568326a405b8c0eacc: 0.02
-    - distortionLevel: 0
+    - distortionLevel: 0.032
     m_Colors: []
   m_BuildTextureStacks: []
