@@ -33,9 +33,9 @@ public class ChangEnviroment : MonoBehaviour
         Debug.Log("Contact");
         if (other.CompareTag("Player"))
         {
-            if (other.GetComponent<RespawnManager>() != null)
+            if (other.GetComponentInParent<RespawnManager>() != null)
             {
-                other.GetComponent<RespawnManager>().Teleport(LocationObject[Index].transform);
+                other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
                 Debug.Log("You have moved to a new location");
             }
             if (Index <= (EnvirObject.Length - 2))

@@ -2637,7 +2637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ce1fc52899963438614c224780c372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnvirObject: []
+  EnvirObject:
+  - {fileID: 7417855392465339005}
+  - {fileID: 7010839557964695865}
+  - {fileID: 3521149750638737167}
+  - {fileID: 8220150640036020926}
   LocationObject:
   - {fileID: 4452537344037041990}
   - {fileID: 2541683138188186649}
@@ -3697,7 +3701,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -797717445448568660, guid: 4d6f1db7b23e13548a0927d46e6d5209, type: 3}
---- !u!64 &8020216882598585560
+--- !u!64 &1535421994145193575
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3711,7 +3715,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -797717445448568660, guid: 4d6f1db7b23e13548a0927d46e6d5209, type: 3}
---- !u!64 &1535421994145193575
+--- !u!64 &8020216882598585560
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
