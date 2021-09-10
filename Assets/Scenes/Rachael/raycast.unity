@@ -418,13 +418,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492902897}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 11.057, y: 11.057, z: 11.057}
   m_Children: []
   m_Father: {fileID: 1251131134}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &492902899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037877918}
-  m_LocalRotation: {x: 0.27989566, y: 0.47346237, z: -0.16173829, w: 0.8193489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.8970833, y: 7.7047234, z: 3.975119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2031,6 +2031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6835692359241733910, guid: b98b8054a1c0de94e814b4b18f626cf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98b8054a1c0de94e814b4b18f626cf8, type: 3}
 --- !u!1001 &4628799680715780062
@@ -2127,6 +2131,10 @@ PrefabInstance:
     - target: {fileID: 5518005857554432621, guid: 78e9dc9bfed756a44a8708b7390f0089, type: 3}
       propertyPath: m_Name
       value: GameOverScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518005857554432621, guid: 78e9dc9bfed756a44a8708b7390f0089, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e9dc9bfed756a44a8708b7390f0089, type: 3}
