@@ -31,15 +31,16 @@ public class ChangEnviroment : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (other.GetComponentInParent<RespawnManager>() != null)
+            {
+                other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
+                Debug.Log("You have moved to a new location");
+            }
             if (Index <= (EnvirObject.Length - 2))
             {
                 //disable the object
                 EnvirObject[Index].SetActive(false);
-                if (other.GetComponentInParent<RespawnManager>() != null)
-                {
-                    other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
-                    Debug.Log("You have moved to a new location");
-                }
+                
                 Index++;
 
                 //Setting the new location for the player after they go through the hole
