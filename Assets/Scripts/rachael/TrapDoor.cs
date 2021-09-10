@@ -9,7 +9,7 @@ public class TrapDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = GameObject.FindObjectOfType<PlayerInteract>();
     }
 
     // Update is called once per frame

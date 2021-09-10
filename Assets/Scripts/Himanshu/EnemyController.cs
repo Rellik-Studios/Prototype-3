@@ -138,8 +138,7 @@ namespace Himanshu
             
             if (m_agent.remainingDistance < 0.1f)
                 m_agent.SetDestination(m_patrolPoints[index++].position);
-            
-            Debug.Log(index);
+            //Debug.Log(index);
         }
 
         public bool PatrolToChaseTransition()
