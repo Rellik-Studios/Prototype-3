@@ -36,20 +36,24 @@ public class GrandfatherClock : MonoBehaviour, IInteract
     //when the piece of the clock is being placed
     public void Execute(PlayerInteract _player)
     {
-        m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
+        
         switch (_player.m_numOfPieces)
         {
             case 1:
                 Gears.SetActive(true);
+                m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
                 break;
             case 2:
                 Face.SetActive(true);
+                m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
                 break;
             case 3:
                 Gong.SetActive(true);
+                m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
                 break;
             case 4:
                 Hands.SetActive(true);
+                OpenTheDoor();
                 break;
             default:
                 print("Incorrect intelligence level.");
