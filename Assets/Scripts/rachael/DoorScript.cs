@@ -7,7 +7,6 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private Animator myDoor;
     [SerializeField] private bool openTrigger = false;
     [SerializeField] private bool closeTrigger = false;
-    [SerializeField] private bool DoneOnce = true;
     [SerializeField] private bool isOpened = false;
     // Start is called before the first frame update
     void Start()
