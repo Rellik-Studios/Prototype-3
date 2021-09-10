@@ -33,16 +33,36 @@ public class RespawnManager : MonoBehaviour
             {
                 Camera.main.transform.rotation = rotation;
                 Debug.Log("Here");
-                Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse();
+                Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
 
             }
             GetComponent<CharacterController>().enabled = true;
         }
     }
+
+    public void Respawn()
+    {
+        GetComponent<CharacterController>().enabled = false;
+        gameObject.transform.position = position;
+        if (Camera.main is { })
+        {
+            Camera.main.transform.rotation = rotation;
+            Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
+
+        }
+        GetComponent<CharacterController>().enabled = true;
+    }
+
     public void Teleport(Transform location)
     {
         GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = location.position;
+        if (Camera.main is { })
+        {
+            Camera.main.transform.rotation = rotation;
+            Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
+
+        }
         GetComponent<CharacterController>().enabled = true;
     }
     public void SetPosition(Transform checkpoint)
