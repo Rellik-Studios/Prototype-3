@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ChangEnviroment : MonoBehaviour
@@ -25,15 +26,16 @@ public class ChangEnviroment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.forward, Time.deltaTime * 200f);
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Contact");
         if (other.CompareTag("Player"))
         {
-            if (other.GetComponentInParent<RespawnManager>() != null)
+            if (other.GetComponent<RespawnManager>() != null)
             {
-                other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
+                other.GetComponent<RespawnManager>().Teleport(LocationObject[Index].transform);
                 Debug.Log("You have moved to a new location");
             }
             if (Index <= (EnvirObject.Length - 2))
