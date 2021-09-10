@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ChangEnviroment : MonoBehaviour
@@ -25,24 +26,27 @@ public class ChangEnviroment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.forward, Time.deltaTime * 200f);
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Contact");
         if (other.CompareTag("Player"))
         {
+            if (other.GetComponentInParent<RespawnManager>() != null)
+            {
+                other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
+                Debug.Log("You have moved to a new location");
+            }
             if (Index <= (EnvirObject.Length - 2))
             {
                 //disable the object
                 EnvirObject[Index].SetActive(false);
+                
                 Index++;
 
                 //Setting the new location for the player after they go through the hole
-                if (other.GetComponentInParent<RespawnManager>() != null)
-                {
-                    other.GetComponentInParent<RespawnManager>().Teleport(LocationObject[Index].transform);
-                    Debug.Log("You have moved to a new location");
-                }
+                
 
                 //setting the trigger to disable so a certain door doesnt open
                 //NOTE: this door is the main room door with the clock

@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="51cde566-903c-4930-8c46-3c5e9f14f61c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Himanshu/Cube.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/Cube.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Himanshu/TableFlip.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/TableFlip.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/HidingTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/HidingTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/RespawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/RespawnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/TrapDoor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/TrapDoor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,16 +27,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/rachael/TrapDoor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/rachael/RespawnManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/rachael/TrapDoor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/rachael/RespawnManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1xkDVs9QXiGs7SQFjBgD917pcty" />
@@ -46,7 +48,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34991798" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -65,10 +67,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20264">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="20264" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -86,7 +88,7 @@
       <updated>1630890223521</updated>
       <workItem from="1630890231044" duration="6244000" />
       <workItem from="1631095332729" duration="10376000" />
-      <workItem from="1631140189228" duration="2804000" />
+      <workItem from="1631140189228" duration="9142000" />
     </task>
     <servers />
   </component>
@@ -109,5 +111,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs</url>
+          <line>118</line>
+          <properties documentPath="D:\Repos\Prototype-3\Assets\Scripts\Himanshu\EnemyController.cs" initialLine="117" containingFunctionPresentation="method 'PatrolUpdate'">
+            <startOffsets>
+              <option value="3204" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3241" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

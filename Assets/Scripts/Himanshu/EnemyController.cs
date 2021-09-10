@@ -106,7 +106,8 @@ namespace Himanshu
 
                 for (int i = 0; i < patrolPointsParent.childCount; i++)
                 {
-                    m_patrolPoints.Add(patrolPointsParent.GetChild(i));
+                    if(patrolPointsParent.GetChild(i).gameObject.activeInHierarchy)
+                        m_patrolPoints.Add(patrolPointsParent.GetChild(i));
                 }
 
                 patrolPointsParent.SetParent(null);
@@ -137,8 +138,7 @@ namespace Himanshu
             
             if (m_agent.remainingDistance < 0.1f)
                 m_agent.SetDestination(m_patrolPoints[index++].position);
-            
-            Debug.Log(index);
+            //Debug.Log(index);
         }
 
         public bool PatrolToChaseTransition()

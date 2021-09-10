@@ -14,6 +14,9 @@ namespace Himanshu
         public bool timeReverse { get; set; }
 
         public bool m_hiding;
+
+        public int m_numOfPieces = 0;
+
         public PlayerInput m_playerInput;
         private RaycastingTesting m_raycastingTesting;
         private HidingSpot m_hidingSpot;
@@ -133,12 +136,13 @@ namespace Himanshu
             GetComponent<CharacterController>().enabled = false;
             transform.position = _transform.position;
             m_playerFollow.SetRotation(_transform, new Vector2(-30, 30));
-            GetComponent<CharacterController>().enabled = true;
+            //GetComponent<CharacterController>().enabled = true;
         }
 
         public void Collect()
         {
             Debug.Log("Object Collected?");
+            m_numOfPieces++;
         }
 
         public void Shoot()
