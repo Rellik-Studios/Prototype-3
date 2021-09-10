@@ -133,7 +133,7 @@ namespace Himanshu
             GetComponent<CharacterController>().enabled = false;
             transform.position = _transform.position;
             m_playerFollow.SetRotation(_transform, new Vector2(-30, 30));
-            GetComponent<CharacterController>().enabled = true;
+            //GetComponent<CharacterController>().enabled = true;
         }
 
         public void Collect()

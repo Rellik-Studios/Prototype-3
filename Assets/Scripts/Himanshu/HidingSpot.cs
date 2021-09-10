@@ -56,7 +56,11 @@ namespace Himanshu
             get => m_hidingIndex;
             set
             {
-                m_hidingIndex = value < 0 ? 0 : value > m_hidingSpots.Count - 1 ? m_hidingSpots.Count - 1 : value;
+                if(m_hidingSpots.Count < 4)
+                    m_hidingIndex = value < 0 ? 0 : value > m_hidingSpots.Count - 1 ? m_hidingSpots.Count - 1 : value;
+                else
+                    m_hidingIndex = value < 0 ? m_hidingSpots.Count - 1 : value > m_hidingSpots.Count - 1 ? 0 : value;
+
                 if (m_player != null)
                 {
                     m_player.SetPositionAndRotation(m_hidingSpots[m_hidingIndex]);
