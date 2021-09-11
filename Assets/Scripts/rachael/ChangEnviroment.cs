@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ChangEnviroment : MonoBehaviour
@@ -25,10 +26,11 @@ public class ChangEnviroment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.forward, Time.deltaTime * 200f);
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Contact");
         if (other.CompareTag("Player"))
         {
             if (other.GetComponentInParent<RespawnManager>() != null)

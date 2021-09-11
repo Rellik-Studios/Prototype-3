@@ -55,6 +55,7 @@ public class RespawnManager : MonoBehaviour
 
     public void Teleport(Transform location)
     {
+        
         GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = location.position;
         if (Camera.main is { })
