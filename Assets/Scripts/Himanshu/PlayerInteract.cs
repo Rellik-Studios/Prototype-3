@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -113,7 +114,9 @@ namespace Himanshu
                 m_raycastingTesting.ObjectInFront?.GetComponent<IEnemy>()?.Shoot(this);
             }
 
-
+            if (dangerBarVal == 1f)
+                SceneManager.LoadScene(1);
+            
             spotted = m_enemies.Any(_enemy => _enemy.m_spotted);
             
             if(Input.GetKeyDown(KeyCode.B))
@@ -128,12 +131,13 @@ namespace Himanshu
             }
             else
             {
-                transform.Translate(transform.forward * 2f);
+                transform.Translate(-transform.forward * 2f);
                 GetComponent<CharacterController>().enabled = true;
                 m_playerFollow.ResetRotationLock();
                 m_hidingSpot.Disable();
                 m_hiding = false;
                 m_hidingSpot = null;
+                
             }
         }
 
@@ -224,6 +228,15 @@ namespace Himanshu
             
             StartCoroutine(m_timeStop.FillBar(0.1f));
             StartCoroutine(m_timeStop.FillBar(6f, -1));
+        }
+
+        public void UnSpot()
+        {
+            dangerBarVal = 0f;
+            foreach (var enemy in m_enemies)
+            {
+                enemy.m_spotted = false;
+            }
         }
     }
 }
