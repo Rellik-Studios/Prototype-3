@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Himanshu
 {
@@ -121,21 +122,25 @@ namespace Himanshu
                 if (_player.timeReverse)
                 {
                     _player.timeReverse = false;
-                    this.Invoke(() => { _player.timeReverse = true;}, 4f);
-                    DisInfect();
+                    this.Invoke(() => { _player.timeReverse = true;}, 5f);
+                    StartCoroutine(_player.m_timeRewind.FillBar(2f));
+                    StartCoroutine(_player.m_timeRewind.FillBar(3f, -1, 2f));
+                    DisInfect(2f);
                 }
             }
         }
 
-        private void DisInfect()
+        
+
+        private void DisInfect(float _time)
         {
             infectStared = false;
             
             aDisInfect = true;
             aInfect = false;
-            aSpeed = 1f / 2f;
+            aSpeed = 1f / _time;
             
-            StartCoroutine(eInfect(true, 2f));
+            StartCoroutine(eInfect(true, _time));
         }
 
         public void Disable()

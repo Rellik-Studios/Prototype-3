@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51cde566-903c-4930-8c46-3c5e9f14f61c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Utility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Utility.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Himanshu/ClosetOpen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/ClosetOpen.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Himanshu/TableFlip.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/TableFlip.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Himanshu/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Himanshu/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Himanshu/Hide.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Himanshu/Hide.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rine/enemy/Distortion_MAT.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/enemy/Distortion_MAT.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Rachael/UIScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Rachael/UIScreen.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Rine/enemy/Enemy.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/enemy/Enemy.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rine/enemy/Enemy_Model_MAT.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/enemy/Enemy_Model_MAT.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Assets/Materials/M_Standing_Closet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Assets/Materials/M_Standing_Closet.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene 1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene 1.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Prefabs/Scene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Prefabs/Scene.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/StateMachine.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/DoorScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/DoorScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Utility.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,18 +33,20 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/rachael/TrapDoor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFC1AD89-0650-411E-946C-FF2E6F276711/45/8a6f8a9a/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../RGPPrototype1/Assets/Scripts/PlayerControl/playerMovement.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/TrapDoor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/RespawnManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/DoorScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Utility.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" />
     </changedPaths>
   </component>
@@ -67,12 +56,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34991798" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -130,37 +120,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs</url>
-          <line>149</line>
-          <properties documentPath="D:\Repos\Prototype-3\Assets\Scripts\Himanshu\HidingSpot.cs" initialLine="134" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="4506" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4555" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs</url>
-          <line>151</line>
-          <properties documentPath="D:\Repos\Prototype-3\Assets\Scripts\Himanshu\HidingSpot.cs" initialLine="142" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="4683" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4719" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
