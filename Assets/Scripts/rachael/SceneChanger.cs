@@ -36,6 +36,7 @@ public class SceneChanger : MonoBehaviour
     public void Continue()
     {
         m_player.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
         if (m_player.GetComponent<RespawnManager>() != null)
             m_player.GetComponent<RespawnManager>().Respawn();
     }
