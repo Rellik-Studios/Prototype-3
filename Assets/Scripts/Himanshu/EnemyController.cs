@@ -11,6 +11,8 @@ namespace Himanshu
 {
     public class EnemyController : MonoBehaviour, IEnemy
     {
+        public bool m_spotted;
+        
         [Header("Attack")]
         [SerializeField] private float m_attackTimer;
         private float m_defaultAttackTimer;
@@ -74,12 +76,34 @@ namespace Himanshu
                 Debug.Log("attacking");
                 m_attackTimer = m_defaultAttackTimer;
             }
+            
+
+           
+            m_spotted = true;
         }
 
         //Called through the Visual Script
         public void ResetAttack()
         {
             m_attackTimer = m_defaultAttackTimer;
+        }
+
+        public void ChaseUpdate()
+        {
+            Physics.Raycast(transform.position, Quaternion.AngleAxis(30f, transform.up) * transform.forward, out m_hits[0], 20f);
+            Physics.Raycast(transform.position, transform.forward, out m_hits[1], 20f);
+            Physics.Raycast(transform.position, Quaternion.AngleAxis(-30f, transform.up) * transform.forward, out m_hits[2], 20f);
+            
+            for (int i = 0; i <= 2; i++)
+            {
+                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player") && m_hits[i].collider.GetComponentInParent<CharacterController>().enabled)
+                {
+                    m_spotted = true;
+                    return;
+                }
+            }
+            
+            m_spotted = false;
         }
 
         
@@ -116,6 +140,8 @@ namespace Himanshu
             }
             
             m_agent.SetDestination(m_patrolPoints[index].position);
+
+            m_spotted = false;
         }
 
         public void PatrolUpdate()

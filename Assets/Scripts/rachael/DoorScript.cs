@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Himanshu;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -34,6 +35,9 @@ public class DoorScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            if(closeTrigger)
+                other.GetComponentInParent<PlayerInteract>().UnSpot();
+                
             switch (FindObjectOfType<ChangEnviroment>().Index)
             {
                 case 0:
