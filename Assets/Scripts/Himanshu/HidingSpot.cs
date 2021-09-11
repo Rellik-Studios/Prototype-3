@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using Bolt;
-using Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Himanshu
 {
@@ -13,8 +11,11 @@ namespace Himanshu
         private int m_hidingIndex;
         private PlayerInteract m_player;
         public bool m_cupboard;
-        
+
+        [SerializeField] private Shader m_shader;
         private Animator m_animator;
+
+        private Renderer m_cubeRenderer;
         private bool aInfect
         {
             get => m_animator.GetBool("infect");
@@ -43,7 +44,21 @@ namespace Himanshu
             get => m_animator.GetBool("close");
             set => m_animator.SetBool("close", value);
         }
-        
+
+        [SerializeField] private float m_distortionValue;
+        public float distortionValue
+        {
+            get => m_distortionValue;
+            set
+            {
+                m_distortionValue = value;
+                if(m_cupboard)
+                    transform.Find("Cube").GetComponent<Renderer>().material.SetFloat("DistortionLevel", value);
+                else
+                    transform.Find("GFX").Find("Cube").GetComponent<Renderer>().material.SetFloat("DistortionLevel", value);
+            }
+        }
+
         public bool isActive
         {
             get;
@@ -76,6 +91,16 @@ namespace Himanshu
             isActive = true;
             m_hidingSpots = new List<Transform>();
 
+            if (transform.Find("Cube") != null)
+            {
+                transform.Find("Cube").GetComponent<Renderer>().material = new Material(m_shader);
+                m_cubeRenderer = transform.Find("Cube").GetComponent<Renderer>();
+            }
+            else
+            {
+                transform.Find("GFX").Find("Cube").GetComponent<Renderer>().material = new Material(m_shader);
+                m_cubeRenderer = transform.Find("GFX").Find("Cube").GetComponent<Renderer>();
+            }
             var hidingSpots = transform.Find("HidingSpots");
             for (int i = 0; i < hidingSpots.childCount; i++)
             {
@@ -97,20 +122,25 @@ namespace Himanshu
                 if (_player.timeReverse)
                 {
                     _player.timeReverse = false;
-                    DisInfect();
+                    this.Invoke(() => { _player.timeReverse = true;}, 5f);
+                    StartCoroutine(_player.m_timeRewind.FillBar(2f));
+                    StartCoroutine(_player.m_timeRewind.FillBar(3f, -1, 2f));
+                    DisInfect(2f);
                 }
             }
         }
 
-        private void DisInfect()
+        
+
+        private void DisInfect(float _time)
         {
             infectStared = false;
             
             aDisInfect = true;
             aInfect = false;
-            aSpeed = 1f / 2f;
+            aSpeed = 1f / _time;
             
-            StartCoroutine(eInfect(true, 2f));
+            StartCoroutine(eInfect(true, _time));
         }
 
         public void Disable()
@@ -120,6 +150,12 @@ namespace Himanshu
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                //m_cubeRenderer.SetFloat("DistorionLevel", 0.02f);
+                //transform.Find("Cube").GetComponent<Renderer>().material.SetFloat("DistortionLevel", 0.02f);
+                distortionValue = m_distortionValue;
+            }
             if (m_player !=  null)
             {
                 if (!isActive)
@@ -161,9 +197,17 @@ namespace Himanshu
         IEnumerator eInfect(bool _state, float _time)
         {
             //Gradually apply Distortion here
-            yield return new WaitForSeconds(_time);
+            var counter = 0f;
+            
+            while (_state ? distortionValue > 0f : distortionValue < 0.02f) 
+            {
+                distortionValue = Mathf.Lerp(distortionValue,_state ? -0.001f : 0.021f, Time.deltaTime * _time);
+                counter += Time.deltaTime / _time;
+                Debug.Log(distortionValue);
+                yield return null;
+            }
             isActive = _state;
-
+            
             for (int i = 0; i < transform.childCount; i++)
             {
                 if(transform.GetChild(i).TryGetComponent<Renderer>(out Renderer _renderer))

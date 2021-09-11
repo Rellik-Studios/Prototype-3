@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ChangEnviroment : MonoBehaviour
@@ -7,7 +8,12 @@ public class ChangEnviroment : MonoBehaviour
     public GameObject[] EnvirObject;
     public GameObject[] LocationObject;
     public GameObject DoorTrigger;
-    private int Index = 0;
+
+    public int Index
+    {
+        get;
+        private set;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +31,11 @@ public class ChangEnviroment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.forward, Time.deltaTime * 200f);
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Contact");
         if (other.CompareTag("Player"))
         {
             if (other.GetComponentInParent<RespawnManager>() != null)

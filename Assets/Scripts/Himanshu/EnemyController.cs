@@ -11,6 +11,8 @@ namespace Himanshu
 {
     public class EnemyController : MonoBehaviour, IEnemy
     {
+        public bool m_spotted;
+        
         [Header("Attack")]
         [SerializeField] private float m_attackTimer;
         private float m_defaultAttackTimer;
@@ -27,7 +29,7 @@ namespace Himanshu
         [FormerlySerializedAs("frozen")] public bool m_frozen = false;
         public bool m_commandFinished { get; set; }
 
-        
+        [SerializeField] private bool m_noCommand;
 
         private List<Transform> m_patrolPoints = new List<Transform>();
         private int m_index;
@@ -47,7 +49,9 @@ namespace Himanshu
         public void RunCommand()
         {
             m_command?.Invoke();
-            m_commandFinished = true;
+
+            if (m_noCommand)
+                m_commandFinished = true;
         }
         private void Start()
         {
@@ -72,12 +76,34 @@ namespace Himanshu
                 Debug.Log("attacking");
                 m_attackTimer = m_defaultAttackTimer;
             }
+            
+
+           
+            m_spotted = true;
         }
 
         //Called through the Visual Script
         public void ResetAttack()
         {
             m_attackTimer = m_defaultAttackTimer;
+        }
+
+        public void ChaseUpdate()
+        {
+            Physics.Raycast(transform.position, Quaternion.AngleAxis(30f, transform.up) * transform.forward, out m_hits[0], 20f);
+            Physics.Raycast(transform.position, transform.forward, out m_hits[1], 20f);
+            Physics.Raycast(transform.position, Quaternion.AngleAxis(-30f, transform.up) * transform.forward, out m_hits[2], 20f);
+            
+            for (int i = 0; i <= 2; i++)
+            {
+                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player") && m_hits[i].collider.GetComponentInParent<CharacterController>().enabled)
+                {
+                    m_spotted = true;
+                    return;
+                }
+            }
+            
+            m_spotted = false;
         }
 
         
@@ -112,6 +138,10 @@ namespace Himanshu
 
                 patrolPointsParent.SetParent(null);
             }
+            
+            m_agent.SetDestination(m_patrolPoints[index].position);
+
+            m_spotted = false;
         }
 
         public void PatrolUpdate()
@@ -138,8 +168,7 @@ namespace Himanshu
             
             if (m_agent.remainingDistance < 0.1f)
                 m_agent.SetDestination(m_patrolPoints[index++].position);
-            
-            Debug.Log(index);
+            //Debug.Log(index);
         }
 
         public bool PatrolToChaseTransition()
@@ -148,7 +177,7 @@ namespace Himanshu
             
             for (int i = 0; i <= 2; i++)
             {
-                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player"))
+                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player") && m_hits[i].collider.GetComponentInParent<CharacterController>().enabled)
                 {
                     return true;
                 }
@@ -185,7 +214,6 @@ namespace Himanshu
             
             if (m_agent.remainingDistance <= m_agent.stoppingDistance && !m_hidingSpotToInfect.infectStared)
             {
-                
                 m_hidingSpotToInfect.Infect();
             }
         }
