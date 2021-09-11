@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: T_Table
-    second: {fileID: 2100010, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+    second: {fileID: 2100000, guid: f51f05c86ca80e44aa8876824763daaa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
