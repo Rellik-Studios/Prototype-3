@@ -4198,6 +4198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hiding: 0
+  m_numOfPieces: 0
   m_playerInput: {fileID: 0}
 --- !u!114 &283781560
 MonoBehaviour:
@@ -4543,7 +4544,6 @@ MonoBehaviour:
   myDoor: {fileID: 1191153644}
   openTrigger: 1
   closeTrigger: 0
-  DoneOnce: 1
   isOpened: 0
 --- !u!65 &304454935
 BoxCollider:
@@ -21410,7 +21410,6 @@ MonoBehaviour:
   myDoor: {fileID: 1191153644}
   openTrigger: 0
   closeTrigger: 1
-  DoneOnce: 1
   isOpened: 0
 --- !u!65 &1440568199
 BoxCollider:
