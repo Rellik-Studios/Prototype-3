@@ -19,6 +19,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void MainScene()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(0);
     }
     public void Quit()
@@ -31,6 +32,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void Ending()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(2);
     }
     public void Continue()
