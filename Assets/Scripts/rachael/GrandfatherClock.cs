@@ -42,17 +42,21 @@ public class GrandfatherClock : MonoBehaviour, IInteract
             case 1:
                 Gears.SetActive(true);
                 m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
+                _player.m_placedDown = false;
                 break;
             case 2:
                 Face.SetActive(true);
                 m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
+                _player.m_placedDown = false;
                 break;
             case 3:
                 Gong.SetActive(true);
                 m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
+                _player.m_placedDown = false;
                 break;
             case 4:
                 Hands.SetActive(true);
+                _player.m_placedDown = false;
                 OpenTheDoor();
                 break;
             default:

@@ -212,6 +212,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2340993042617246229, guid: f29df46d83f891141b37d1108f6358c3, type: 3}
   m_PrefabInstance: {fileID: 423713332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &106570295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2340993042617246222, guid: f29df46d83f891141b37d1108f6358c3, type: 3}
+  m_PrefabInstance: {fileID: 423713332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106570293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc037a8c1d374d68afbe525219d52be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &116274323
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raydist: 5
+  player: {fileID: 106570293}
+  m_indication: {fileID: 2131443532}
 --- !u!114 &191910557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +906,10 @@ PrefabInstance:
       propertyPath: m_timeRewind
       value: 
       objectReference: {fileID: 770111367}
+    - target: {fileID: 2340993042617246223, guid: f29df46d83f891141b37d1108f6358c3, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 191910551}
     - target: {fileID: 2340993042617246229, guid: f29df46d83f891141b37d1108f6358c3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3458,6 +3475,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3111795338991153228, guid: ae3f4021256572e47a5549b42eac407a, type: 3}
   m_PrefabInstance: {fileID: 2078312143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2131443532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4932501493782676432, guid: b98b8054a1c0de94e814b4b18f626cf8, type: 3}
+  m_PrefabInstance: {fileID: 6108277689851167405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5254707201112493097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3562,6 +3590,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1789785612, guid: b98b8054a1c0de94e814b4b18f626cf8, type: 3}
+      propertyPath: playerinteract
+      value: 
+      objectReference: {fileID: 106570295}
     - target: {fileID: 6546867235408555169, guid: b98b8054a1c0de94e814b4b18f626cf8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
