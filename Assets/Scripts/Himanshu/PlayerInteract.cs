@@ -32,6 +32,22 @@ namespace Himanshu
         private bool playingUp = false;
         private bool playingDown = false;
         private Coroutine m_fillRoutine;
+
+        private int m_enemySpotNum;
+
+        private int enemySpotNum
+        {
+            get => m_enemySpotNum;
+            set
+            {
+                if (m_enemySpotNum != value)
+                {
+                    m_enemySpotNum = value;
+                    spotted = m_enemySpotNum > 0;
+                }
+            }
+        }
+        
         public bool spotted
         {
             get => m_spotted;
@@ -41,11 +57,13 @@ namespace Himanshu
                 {
                     if (value)
                     {
-                        StartCoroutine(FillBar(m_danger, 8f));
+                        StopCoroutine(m_fillRoutine);
+                        m_fillRoutine = StartCoroutine(FillBar(m_danger, 8f / enemySpotNum));
                     }
                     else 
                     {
-                        StartCoroutine(FillBar(m_danger, 3f, -1));
+                        StopCoroutine(m_fillRoutine);
+                        m_fillRoutine = StartCoroutine(FillBar(m_danger, 3f, -1));
                     }
                     m_spotted = value;
                 }
@@ -74,6 +92,7 @@ namespace Himanshu
         }
 
         public bool timeReverse { get; set; }
+        public bool cloudedVision { get; set; }
 
         [Header("General")]
         public bool m_hiding;
@@ -89,10 +108,12 @@ namespace Himanshu
         private void OnEnable()
         {
             m_enemies = GameObject.FindObjectsOfType<EnemyController>().ToList();
+            Debug.Log(m_enemies.Count);
         }
 
         private void Start()
         {
+            m_fillRoutine = StartCoroutine(temp());
             m_playerFollow = GameObject.FindObjectOfType<PlayerFollow>();
             m_raycastingTesting = FindObjectOfType<RaycastingTesting>();
             m_playerInput = GetComponent<PlayerInput>();
@@ -124,10 +145,19 @@ namespace Himanshu
                 Cursor.lockState = CursorLockMode.None;
                 //SceneManager.LoadScene(1);
             }
-            spotted = m_enemies.Any(_enemy => _enemy.m_spotted);
+            enemySpotNum = m_enemies.Count(_enemy => _enemy.m_spotted);
+            
+            Debug.Log(m_enemySpotNum);
+
+            
             
             if(Input.GetKeyDown(KeyCode.B))
                 StartCoroutine(TimeHandler());
+
+            if (m_hiding && dangerBarVal < 0.1f)
+                dangerBarVal = 0f;
+
+
         }
 
         public void Unhide()
@@ -138,8 +168,9 @@ namespace Himanshu
             }
             else
             {
-                transform.Translate(-transform.forward * 2f);
+                
                 GetComponent<CharacterController>().enabled = true;
+                GetComponent<CharacterController>().Move(m_playerFollow.transform.forward * 3f);
                 m_playerFollow.ResetRotationLock();
                 m_hidingSpot.Disable();
                 m_hiding = false;
@@ -148,16 +179,22 @@ namespace Himanshu
             }
         }
 
+        IEnumerator temp()
+        {
+            yield return null;
+        }
+
         private IEnumerator eUnHide()
         {
             m_hidingSpot.aOpen = true;
             m_hidingSpot.aClose = false;
             yield return new WaitForSeconds(1f);
-            transform.Translate(-transform.forward * 3f);
+            //transform.Translate(m_playerFollow.transform.forward * 3f);
             m_hidingSpot.aOpen = false;
             m_hidingSpot.aClose = true;
-            transform.Translate(transform.forward);
             GetComponent<CharacterController>().enabled = true;
+            GetComponent<CharacterController>().Move(m_playerFollow.transform.forward * 3f);
+
             m_playerFollow.ResetRotationLock();
             m_hidingSpot.Disable();
             m_hiding = false;
@@ -208,12 +245,21 @@ namespace Himanshu
 
         public void SetPositionAndRotation(Transform _transform, float _delay = 0)
         {
-            StartCoroutine(eSetPositionAndRotation(_transform, _delay));
+            if(_delay > 0f)
+                StartCoroutine(eSetPositionAndRotation(_transform, _delay));
+            else
+            {
+                transform.rotation = _transform.rotation;
+                GetComponent<CharacterController>().enabled = false;
+                transform.position = _transform.position;
+                m_playerFollow.SetRotation(_transform, new Vector2(-30, 30));
+            }
         }
 
         private IEnumerator eSetPositionAndRotation(Transform _transform,float _delay)
         {
             yield return new WaitForSeconds(_delay);
+            transform.rotation = _transform.rotation;
             GetComponent<CharacterController>().enabled = false;
             transform.position = _transform.position;
             m_playerFollow.SetRotation(_transform, new Vector2(-30, 30));

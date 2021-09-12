@@ -35,6 +35,7 @@ public class DoorScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            GetComponent<AudioSource>().Play();
             if(closeTrigger)
                 other.GetComponentInParent<PlayerInteract>().UnSpot();
                 
@@ -85,10 +86,12 @@ public class DoorScript : MonoBehaviour
 
     public void DoorOpening()
     {
+        GetComponent<AudioSource>().Play();
         myDoor.SetBool("IsOpening", true);
     }
     public void DoorClosing()
     {
+        GetComponent<AudioSource>().Play();
         myDoor.SetBool("IsOpening", false);
     }
 
