@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2340993041733206178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -208,7 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc037a8c1d374d68afbe525219d52be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoseScreen: {fileID: 0}
+  m_timeRewind: {fileID: 0}
+  m_timeStop: {fileID: 0}
+  m_danger: {fileID: 0}
   m_hiding: 0
+  m_numOfPieces: 0
+  m_placedDown: 0
   m_playerInput: {fileID: 0}
 --- !u!114 &2340993042617246223
 MonoBehaviour:
@@ -224,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerObject: {fileID: 2340993042617246229}
   m_playerTransform: {fileID: 2340993041733206179}
+  cam: {fileID: 0}
 --- !u!1 &2340993042632544482
 GameObject:
   m_ObjectHideFlags: 0

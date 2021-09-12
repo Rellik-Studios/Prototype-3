@@ -75,7 +75,8 @@ public class RaycastingTesting : MonoBehaviour
             if(ObjectInFront.GetComponent<HidingSpot>() != null)
             {
                 //if inflected
-                if(ObjectInFront.GetComponent<HidingSpot>().infectStared)
+                //if(ObjectInFront.GetComponent<HidingSpot>().infectStared )
+                if(!ObjectInFront.GetComponent<HidingSpot>().isActive)
                 {
                     m_indication.sprite = Resources.Load<Sprite>("Rewind");
                     return;
