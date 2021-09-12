@@ -11,6 +11,8 @@ public class GrandfatherClock : MonoBehaviour, IInteract
     [SerializeField] GameObject Face;
     [SerializeField] GameObject Gong;
     [SerializeField] GameObject Hands;
+
+    [SerializeField] private AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,7 @@ public class GrandfatherClock : MonoBehaviour, IInteract
         switch (_player.m_numOfPieces)
         {
             case 1:
+                GetComponent<AudioSource>()?.Play();
                 Gears.SetActive(true);
                 m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
                 _player.m_placedDown = false;
@@ -50,6 +53,8 @@ public class GrandfatherClock : MonoBehaviour, IInteract
                 _player.m_placedDown = false;
                 break;
             case 3:
+                GetComponent<AudioSource>().clip = clip;
+                GetComponent<AudioSource>().Play();
                 Gong.SetActive(true);
                 m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
                 _player.m_placedDown = false;

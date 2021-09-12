@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Himanshu
 {
@@ -57,6 +58,25 @@ namespace Himanshu
         {
             m_agent = GetComponent<NavMeshAgent>();
             m_defaultAttackTimer = m_attackTimer;
+            
+            if (m_patrolPoints.Count == 0)
+            {
+                var patrolPointsParent = transform.Find("PatrolPoints");
+
+                if (patrolPointsParent == null)
+                {
+                    return;
+                    //throw new Exception($"Cannot Find Patrol Points in Enemy: {name}");
+                }
+
+                for (int i = 0; i < patrolPointsParent.childCount; i++)
+                {
+                    if(patrolPointsParent.GetChild(i).gameObject.activeInHierarchy)
+                        m_patrolPoints.Add(patrolPointsParent.GetChild(i));
+                }
+
+                patrolPointsParent.SetParent(null);
+            }
         }
 
 
@@ -120,28 +140,12 @@ namespace Himanshu
 
         public void PatrolStart()
         {
-
-            if (m_patrolPoints.Count == 0)
-            {
-                var patrolPointsParent = transform.Find("PatrolPoints");
-
-                if (patrolPointsParent == null)
-                {
-                    throw new Exception($"Cannot Find Patrol Points in Enemy: {name}");
-                }
-
-                for (int i = 0; i < patrolPointsParent.childCount; i++)
-                {
-                    if(patrolPointsParent.GetChild(i).gameObject.activeInHierarchy)
-                        m_patrolPoints.Add(patrolPointsParent.GetChild(i));
-                }
-
-                patrolPointsParent.SetParent(null);
-            }
-            
-            m_agent.SetDestination(m_patrolPoints[index].position);
-
             m_spotted = false;
+
+           
+            if(m_patrolPoints.Count > 0)
+                m_agent.SetDestination(m_patrolPoints[index].position);
+
         }
 
         public void PatrolUpdate()
@@ -166,8 +170,16 @@ namespace Himanshu
 
             yield return new WaitForSeconds(m_defaultPatrolWaitTime);
             
-            if (m_agent.remainingDistance < 0.1f)
-                m_agent.SetDestination(m_patrolPoints[index++].position);
+            if(m_patrolPoints.Count > 0 && m_patrolPoints.Count < 5)
+                if (m_agent.remainingDistance < 0.1f)
+                    m_agent.SetDestination(m_patrolPoints[index++].position);
+                else
+                    Debug.Log("");
+            
+            else if(m_patrolPoints.Count >= 5)
+                    if (m_agent.remainingDistance < 0.1f)
+                        m_agent.SetDestination(m_patrolPoints[Random.Range(0, m_patrolPoints.Count - 1)].position);
+            
             //Debug.Log(index);
         }
 
@@ -177,7 +189,7 @@ namespace Himanshu
             
             for (int i = 0; i <= 2; i++)
             {
-                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player") && m_hits[i].collider.GetComponentInParent<CharacterController>().enabled)
+                if (m_hits[i].collider != null && m_hits[i].collider.gameObject.CompareTag("Player") && m_hits[i].collider.GetComponentInParent<CharacterController>().enabled && !m_hits[i].collider.GetComponentInParent<PlayerInteract>().m_hiding)
                 {
                     return true;
                 }
@@ -194,8 +206,14 @@ namespace Himanshu
                 if (m_hits[i].collider != null &&
                     m_hidingSpotsToInfect.Any(t => t.gameObject.transform == m_hits[i].collider.transform))
                 {
-                    m_hidingSpotToInfect = m_hits[i].collider.GetComponent<HidingSpot>();                    
-                    return m_hidingSpotToInfect.isActive;
+                    m_hidingSpotToInfect = m_hits[i].collider.GetComponent<HidingSpot>();
+                    if (m_hidingSpotToInfect.isActive)
+                        if (Random.Range(0, 10) <= 4)
+                            return true;
+                        else
+                            return false;
+                    else
+                        return false;
                 }
             }
             

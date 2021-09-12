@@ -29,7 +29,7 @@ namespace Himanshu
 
             
             m_mouseX += Input.GetAxis("Mouse X");
-            m_mouseY += Input.GetAxis("Mouse Y");
+            m_mouseY -= Input.GetAxis("Mouse Y");
 
             m_mouseY = m_yLimiter ? Mathf.Clamp(m_mouseY, m_yRange.x, m_yRange.y): m_mouseY;
             m_mouseX = m_xLimiter ? Mathf.Clamp(m_mouseX, m_xRange.x, m_xRange.y): m_mouseX;

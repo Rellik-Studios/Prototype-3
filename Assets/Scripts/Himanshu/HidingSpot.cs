@@ -78,6 +78,7 @@ namespace Himanshu
                 if (m_player != null)
                 {
                     m_player.SetPositionAndRotation(m_hidingSpots[m_hidingIndex]);
+                    
                     m_player.GetComponent<CharacterController>().enabled = false;
                 }
             }
@@ -104,7 +105,8 @@ namespace Himanshu
             var hidingSpots = transform.Find("HidingSpots");
             for (int i = 0; i < hidingSpots.childCount; i++)
             {
-                m_hidingSpots.Add(hidingSpots.GetChild(i));
+                if(hidingSpots.GetChild(i).gameObject.activeInHierarchy)
+                    m_hidingSpots.Add(hidingSpots.GetChild(i));
             }
         }
 
@@ -161,6 +163,9 @@ namespace Himanshu
                 if (!isActive)
                 {
                     m_player.Unhide();
+                    m_player.cloudedVision = true;
+                    this.Invoke(() => { m_player.cloudedVision = false; }, 3f);
+                    m_player = null;
                     return;
                 }
                 StartCoroutine(IndexHandler());
