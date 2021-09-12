@@ -78,6 +78,7 @@ namespace Himanshu
         [Header("General")]
         public bool m_hiding;
         public int m_numOfPieces = 0;
+        public bool m_placedDown = false;
 
         public PlayerInput m_playerInput;
         private RaycastingTesting m_raycastingTesting;
@@ -222,6 +223,7 @@ namespace Himanshu
         public void Collect()
         {
             Debug.Log("Object Collected?");
+            m_placedDown = true;
             m_numOfPieces++;
         }
 
