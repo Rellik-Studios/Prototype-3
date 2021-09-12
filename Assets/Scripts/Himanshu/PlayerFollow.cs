@@ -20,6 +20,7 @@ namespace Himanshu
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            ResetMouse(m_playerTransform.rotation.eulerAngles.y, m_playerTransform.rotation.eulerAngles.x);
         }
 
         void Update()

@@ -13,6 +13,7 @@ namespace Himanshu
     public class PlayerInteract : MonoBehaviour
     {
         private bool m_spotted;
+        public GameObject LoseScreen;
 
         private List<EnemyController> m_enemies;
         public  IEnumerator FillBar(Image _fillImage, float _time, int _dir = 1, float _waitTime = 0f)
@@ -115,8 +116,13 @@ namespace Himanshu
             }
 
             if (dangerBarVal == 1f)
-                SceneManager.LoadScene(1);
-            
+            {
+                LoseScreen.SetActive(true);
+                dangerBarVal = 0;
+                gameObject.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                //SceneManager.LoadScene(1);
+            }
             spotted = m_enemies.Any(_enemy => _enemy.m_spotted);
             
             if(Input.GetKeyDown(KeyCode.B))
