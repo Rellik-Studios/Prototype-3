@@ -8,6 +8,7 @@ public class RespawnManager : MonoBehaviour
     public GameObject PlayerObject;
     [SerializeField] Transform m_playerTransform;
     Transform currentTransform;
+    [SerializeField] GameObject cam;
     private Vector3 position;
     private Quaternion rotation;
     // Start is called before the first frame update
@@ -29,11 +30,11 @@ public class RespawnManager : MonoBehaviour
         {
             GetComponent<CharacterController>().enabled = false;
             gameObject.transform.position = position;
-            if (Camera.main is { })
+            if (cam != null)
             {
-                Camera.main.transform.rotation = rotation;
+                cam.transform.rotation = rotation;
                 Debug.Log("Here");
-                Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
+                cam.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
 
             }
             GetComponent<CharacterController>().enabled = true;
@@ -44,10 +45,11 @@ public class RespawnManager : MonoBehaviour
     {
         GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = position;
-        if (Camera.main is { })
+        if (cam != null)
         {
-            Camera.main.transform.rotation = rotation;
-            Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
+            cam.transform.rotation = rotation;
+            Debug.Log("Here");
+            cam.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
 
         }
         GetComponent<CharacterController>().enabled = true;
@@ -58,10 +60,11 @@ public class RespawnManager : MonoBehaviour
         
         GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = location.position;
-        if (Camera.main is { })
+        if (cam != null)
         {
-            Camera.main.transform.rotation = rotation;
-            Camera.main.gameObject.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
+            cam.transform.rotation = rotation;
+            Debug.Log("Here");
+            cam.GetComponent<PlayerFollow>()?.ResetMouse(rotation.eulerAngles.y, rotation.eulerAngles.x);
 
         }
         GetComponent<CharacterController>().enabled = true;
