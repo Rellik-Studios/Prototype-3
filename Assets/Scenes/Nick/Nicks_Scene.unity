@@ -4011,26 +4011,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 188967055, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 168838781}
-    - target: {fileID: 636967958, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 168838781}
-    - target: {fileID: 981889717, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 168838781}
-    - target: {fileID: 1172953470, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 168838781}
-    - target: {fileID: 1247958748, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 168838781}
     - target: {fileID: 1537073736, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
       propertyPath: m_room1Camera
       value: 
