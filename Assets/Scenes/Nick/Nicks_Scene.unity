@@ -4079,6 +4079,14 @@ PrefabInstance:
       propertyPath: _data._objectReferences.Array.data[0]
       value: 
       objectReference: {fileID: 106570293}
+    - target: {fileID: 3971373925584931115, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
+      propertyPath: m_hidingSpotsToInfect.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971373925584931115, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
+      propertyPath: m_hidingSpotsToInfect.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3971373925584931156, guid: ea9a4211d2aa1ab488c7fc2860f9a0fd, type: 3}
       propertyPath: _data._objectReferences.Array.data[0]
       value: 
