@@ -18,7 +18,7 @@ public class DoorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (isOpened)
+        if (isOpened && openTrigger)
         {
             myDoor.SetBool("IsOpening", true);
         }
@@ -35,7 +35,8 @@ public class DoorScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GetComponent<AudioSource>().Play();
+            if((openTrigger && !isOpened) || (closeTrigger && isOpened))
+                GetComponent<AudioSource>().Play();
             if(closeTrigger)
                 other.GetComponentInParent<PlayerInteract>().UnSpot();
                 
@@ -75,10 +76,17 @@ public class DoorScript : MonoBehaviour
             //    DoneOnce = false;
 
             //}
-            if(openTrigger)
+            if (openTrigger)
+            {
                 myDoor.SetBool("IsOpening", true);
-            if(closeTrigger)
+                isOpened = true;
+            }
+
+            if (closeTrigger)
+            {
                 myDoor.SetBool("IsOpening", false);
+                isOpened = false;
+            }
 
 
         }

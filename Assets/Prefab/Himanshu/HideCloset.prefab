@@ -399,13 +399,37 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.97
       objectReference: {fileID: 0}
+    - target: {fileID: -4319308234465296568, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4319308234465296568, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -3591552914977060181, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 17b4434619a95df45acad97c91522921, type: 2}
+    - target: {fileID: -2264573849203432512, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2264573849203432512, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
       propertyPath: m_Name
       value: SM_Double_Door_Closet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 922376813713215033, guid: b8fc433b6e2701e409b8ab3443255ca9, type: 3}
       propertyPath: m_Materials.Array.data[0]

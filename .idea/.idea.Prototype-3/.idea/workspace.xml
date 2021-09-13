@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="51cde566-903c-4930-8c46-3c5e9f14f61c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ludiq/Bolt.Flow/Generated/UnitOptions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludiq/Bolt.Flow/Generated/UnitOptions.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Himanshu/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Himanshu/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Himanshu/HideCloset.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Himanshu/HideCloset.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Himanshu/HideTable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Himanshu/HideTable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rine/Scene_Volume_Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/Scene_Volume_Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rine/enemy/Distortion_MAT.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/enemy/Distortion_MAT.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rine/enemy/Enemy.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/enemy/Enemy.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Nicks_Scene/NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nick/Prefabs/Scene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nick/Prefabs/Scene.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/WiningScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/WiningScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/CollectableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/CollectableObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/StateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/StateMachine.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/DoorScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/DoorScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/rachael/GrandfatherClock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/rachael/GrandfatherClock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +56,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/ChangEnviroment.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Utility.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerFollow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Commands.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/HidingSpot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/DoorScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInteract.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CollectableObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/EnemyController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/rachael/GrandfatherClock.cs" />
     </changedPaths>
   </component>
@@ -60,7 +71,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34991798" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -80,10 +91,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="33964">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2184">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="33964" />
+      <option name="pid" value="2184" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -102,7 +113,8 @@
       <workItem from="1630890231044" duration="6244000" />
       <workItem from="1631095332729" duration="10376000" />
       <workItem from="1631140189228" duration="9142000" />
-      <workItem from="1631450827577" duration="13636000" />
+      <workItem from="1631450827577" duration="13800000" />
+      <workItem from="1631496917612" duration="8270000" />
     </task>
     <servers />
   </component>
