@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -92,17 +94,99 @@ namespace Himanshu
         }
 
         public bool timeReverse { get; set; }
-        public bool cloudedVision { get; set; }
+
+        public bool cloudedVision
+        {
+            set
+            {
+                if (value)
+                {
+                    StopCoroutine(m_kickRoutine);
+                    m_kickRoutine = StartCoroutine(eLensDistortion(2f));
+                }
+                else
+                {
+                    StopCoroutine(m_kickRoutine);
+                    m_kickRoutine = StartCoroutine(eLensDistortion(1f, false));
+                }
+            } 
+            
+        }
+
+        private float m_lensDistort;
+        private float m_lensScale;
+        private float lensDistort
+        {
+            get => m_lensDistort;
+            set
+            {
+                m_lensDistort = value;
+                if (GameObject.FindObjectOfType<Camera>().GetComponent<Volume>().profile
+                    .TryGet(out LensDistortion _lensDistortion))
+                {
+                    _lensDistortion.intensity.value = m_lensDistort;
+                    _lensDistortion.scale.value = m_lensScale;
+                }
+            }
+        }
+
+        private float lensScale
+        {
+            get => m_lensScale;
+            set
+            {
+                m_lensScale = value;
+            }
+        }
+
+        private IEnumerator eLensDistortion(float _time, bool _distort = true)
+        {
+            if (_distort)
+            {
+                var count = 0f;
+                while (count < _time)
+                {
+                    count += Time.deltaTime;
+                    lensScale = Mathf.Lerp(lensScale, 0.1f, Time.deltaTime * _time);
+                    lensDistort = Mathf.Lerp(lensDistort,0.74f, Time.deltaTime * _time);
+                    yield return null;
+                }
+
+                lensScale = 0.1f;
+                lensDistort = 0.74f;
+            }
+
+            else
+            {
+                var count = 0f;
+                while (count < _time || lensScale < 1f || lensDistort > 0f)
+                {
+                    count += Time.deltaTime;
+                    lensScale = Mathf.Lerp(lensScale, 1.1f, Time.deltaTime * _time);
+                    lensDistort = Mathf.Lerp(lensDistort,-0.1f, Time.deltaTime * _time);
+                    yield return null;
+                }
+
+                lensScale = 1f;
+                lensDistort = 0f;
+
+            }
+            
+        }
 
         [Header("General")]
         public bool m_hiding;
         public int m_numOfPieces = 0;
         public bool m_placedDown = false;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip m_rewindAudio;
+        [SerializeField] private AudioClip m_timeStopAudio;
         public PlayerInput m_playerInput;
         private RaycastingTesting m_raycastingTesting;
         private HidingSpot m_hidingSpot;
         private PlayerFollow m_playerFollow;
+        private Coroutine m_kickRoutine;
 
 
         private void OnEnable()
@@ -113,6 +197,7 @@ namespace Himanshu
 
         private void Start()
         {
+            m_kickRoutine = StartCoroutine(temp());
             m_fillRoutine = StartCoroutine(temp());
             m_playerFollow = GameObject.FindObjectOfType<PlayerFollow>();
             m_raycastingTesting = FindObjectOfType<RaycastingTesting>();
@@ -137,9 +222,10 @@ namespace Himanshu
                 m_raycastingTesting.ObjectInFront?.GetComponent<IEnemy>()?.Shoot(this);
             }
 
-            if (dangerBarVal == 1f)
+            if (dangerBarVal == 1f && !LoseScreen.activeInHierarchy)
             {
                 LoseScreen.SetActive(true);
+                m_enemies.All(t => t.toPatrol = true);
                 dangerBarVal = 0;
                 gameObject.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
@@ -151,9 +237,7 @@ namespace Himanshu
 
             
             
-            if(Input.GetKeyDown(KeyCode.B))
-                StartCoroutine(TimeHandler());
-
+            
             if (m_hiding && dangerBarVal < 0.1f)
                 dangerBarVal = 0f;
 
@@ -175,7 +259,6 @@ namespace Himanshu
                 m_hidingSpot.Disable();
                 m_hiding = false;
                 m_hidingSpot = null;
-                
             }
         }
 
@@ -275,6 +358,7 @@ namespace Himanshu
 
         public void Shoot()
         {
+            GetComponent<AudioSource>().PlayOneShot(m_timeStopAudio);
             m_bulletCount -= 1;
                         
             this.Invoke(() => { bulletCount = 1; }, 6f);
@@ -291,6 +375,19 @@ namespace Himanshu
             {
                 enemy.m_spotted = false;
             }
+        }
+
+        public void Kick()
+        {
+            cloudedVision = true;
+            this.Invoke(() => { cloudedVision = false; }, 2f);
+            this.Invoke(() => { Unhide(); }, 3f);
+
+        }
+
+        public void PlayTimeRewind()
+        {
+            GetComponent<AudioSource>().PlayOneShot(m_rewindAudio);
         }
     }
 }

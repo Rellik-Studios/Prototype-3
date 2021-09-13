@@ -1862,7 +1862,7 @@
     },
     "m_Name": "DistortionSpeed",
     "m_DefaultReferenceName": "Vector1_a294a100ff214cda8016561ef8ed8637",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "DistortionSpeed",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

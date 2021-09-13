@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Bolt;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -12,6 +13,28 @@ namespace Himanshu
 {
     public class EnemyController : MonoBehaviour, IEnemy
     {
+        [SerializeField] private GameObject m_distortion;
+
+        private float distortionValue
+        {
+            get => m_distortion.GetComponent<Renderer>().material.GetFloat("DistortionSpeed");
+            set => m_distortion.GetComponent<Renderer>().material.SetFloat("DistortionSpeed", value);
+
+        }
+        private bool m_toPatrol;
+        public bool toPatrol
+        {
+            get => m_toPatrol;
+            set
+            {
+                if(GetComponent<StateMachine>().enabled)
+                    m_toPatrol = value;
+                else
+                    m_toPatrol = false;
+                
+            }
+        }
+
         public bool m_spotted;
         
         [Header("Attack")]
@@ -132,6 +155,9 @@ namespace Himanshu
         {
             if (_player.bulletCount > 0)
             {
+                distortionValue = 0f;
+                
+                this.Invoke(() => { distortionValue = -0.2f;}, 6f);
                 m_frozen = true;
                 _player.Shoot();
                 StartCoroutine(UnFreeze());

@@ -127,6 +127,7 @@ namespace Himanshu
                     this.Invoke(() => { _player.timeReverse = true;}, 5f);
                     StartCoroutine(_player.m_timeRewind.FillBar(2f));
                     StartCoroutine(_player.m_timeRewind.FillBar(3f, -1, 2f));
+                    _player.PlayTimeRewind();
                     DisInfect(2f);
                 }
             }
@@ -162,9 +163,7 @@ namespace Himanshu
             {
                 if (!isActive)
                 {
-                    m_player.Unhide();
-                    m_player.cloudedVision = true;
-                    this.Invoke(() => { m_player.cloudedVision = false; }, 3f);
+                    m_player.Kick();
                     m_player = null;
                     return;
                 }

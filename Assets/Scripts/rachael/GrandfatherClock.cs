@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Himanshu;
+using UnityEngine.Serialization;
+
 public class GrandfatherClock : MonoBehaviour, IInteract
 {
     [SerializeField] GameObject m_triggerDoor;
@@ -12,7 +14,11 @@ public class GrandfatherClock : MonoBehaviour, IInteract
     [SerializeField] GameObject Gong;
     [SerializeField] GameObject Hands;
 
+    private int m_previousPieces = 0;
     [SerializeField] private AudioClip clip;
+
+    [SerializeField] private AudioClip m_pickUp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +44,18 @@ public class GrandfatherClock : MonoBehaviour, IInteract
     //when the piece of the clock is being placed
     public void Execute(PlayerInteract _player)
     {
+
+        if(m_previousPieces == _player.m_numOfPieces)   return;
         
+        
+        GetComponent<AudioSource>()?.PlayOneShot(m_pickUp);
+
         switch (_player.m_numOfPieces)
         {
             case 1:
-                GetComponent<AudioSource>()?.Play();
-                Gears.SetActive(true);
-                m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
+               Gears.SetActive(true);
+               GetComponent<AudioSource>().Play(); 
+               m_triggerDoor.GetComponent<DoorScript>().DoorOpening();
                 _player.m_placedDown = false;
                 break;
             case 2:
